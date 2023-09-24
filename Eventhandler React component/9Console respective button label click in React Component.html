@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="d3"></div>
+   <script type="text/babel">
+         var xyz= function (){
+          var abc = (e) => {
+                console.log(e)
+            }
+            return (
+                <div>
+                    {<h1 onClick={abc}>Welcome to Edupoly ReactJS</h1>}
+                </div>
+            )
+
+        
+      }
+      
+      ReactDOM.render(xyz,document.getElementById("d3"))
+
+
+    </script>
+  </body>
+</html>

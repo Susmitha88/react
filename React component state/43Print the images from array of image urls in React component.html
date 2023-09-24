@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    
+    <div id="d2"></div>
+    <script type="text/babel">
+        var Jkl = function () {
+            var [ar, setAr] = React.useState([
+                  "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nationalgeographic.com%2Fanimals%2Fmammals%2Ffacts%2Fdomestic-cat&psig=AOvVaw0s3zKKq1lTcVgBc-fH_980&ust=1695276195390000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMiemI7CuIEDFQAAAAAdAAAAABAD"
+                  "https://cdn.pixabay.com/photo/2015/04/23/22/01/mountains-736886_1280.jpg"
+                ]);
+            return (
+                <div>
+                    {
+                        ar.map((a)=>{
+                      return <img src={a} width="100px"/>
+                    })
+                    }
+                </div>
+            )
+        }
+        ReactDOM.render(<Jkl />, document.getElementById('d2'));
+    </script>
+</body>
+
+</html>
+  

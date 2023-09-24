@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+     <div id="mycontainer"></div>
+     <script type="text/babel">
+         var xyz=function (){
+          var abc=()=>{
+            alert("Hello Edupoly")
+          }
+         return(
+          <div>
+            {<button onClick={abc}>Click here to see alert</button>}
+         </div>
+         )
+        }
+        
+        ReactDOM.render(xyz,document.getElementById("mycontainer"))
+     </script>
+  </body>
+</html>

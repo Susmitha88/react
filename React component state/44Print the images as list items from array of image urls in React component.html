@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d2"></div>
+        <script type="text/babel">
+            var jkl=function(){
+                var[ar,setar]=react.usestate([
+                  "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2017%2F02%2F20%2F18%2F03%2Fcat-2083492_640.jpg&tbnid=mlpzyu1uQX1EgM&vet=12ahUKEwjShdHww7iBAxUCoekKHaseDYwQMygSegUIARCfAQ..i&imgrefurl=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Fcat%2F&docid=rzUo6RAz-vdsGM&w=640&h=391&q=cat%20image&ved=2ahUKEwjShdHww7iBAxUCoekKHaseDYwQMygSegUIARCfAQ" 
+            ]);
+                return(
+                    <div>
+                        {
+                            ar.map((a)=>{
+                                return<li><img src={a}width="a00px"/></li>
+                            })
+                        }
+                        </div>
+                )
+
+            }
+            reactdom.render(<jkl/>,document.getElementById('d2'));
+        </script>
+    </body>
+</html>
