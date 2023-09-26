@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js" integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style>
+        .img{
+            height:282px;
+            width:500px;
+            border-radius: 2px;
+           }
+           .btn{
+            width:200px;
+            height:30px;
+            border:1px solid brown;
+            color:brown;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            
+           }
+           .span{
+            background-color: rgba(100, 197, 239, 0.76);
+            color:rgb(10, 10, 171);
+            width:100px;
+            height:25px;
+            border-radius: 2px;
+            text-align: center;
+            margin-top: 15px;
+            margin-left: 100px;
+           }
+           .h1AndSpan{
+            display:flex;
+            
+           }
+           .card{
+            border-radius: 5px;
+            background-color: white;
+            padding:40px;
+            margin-left:300px;
+            margin-right: 300px;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+           }
+           .card:hover{
+               box-shadow: 5px 10px 8px #888888;
+           }
+           .mainContainer{
+            background-color: rgb(187, 189, 189);
+            padding-bottom: 20px;
+           }
+           .cardData{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+           }
+           .innerHeading{
+                margin-right: 100px;
+           }
+           .hrEl{
+            width:60px;
+            height:3px;
+            background-color: blue;
+           }
+           .buttons{
+            display: flex;
+            gap: 10px;
+           }
+           .btn:hover{
+             background-color: rgb(222, 137, 137);
+             color: antiquewhite;
+             transition: 0.3s;
+             box-shadow: 10px rgb(159, 94, 13);
+           }
+        </style>
+        </head>
+    <body>
+        <div id="d1"></div>
+        <script type="text/babel">
+            function Vacation(){
+                var [tour,setTour]=React.useState([]);
+                React.useEffect(()=>{
+                    axios.get("https://course-api.com/react-tours-project")
+                    .then((res)=>{
+                    setTour([...res.data])
+                })
+                },[])
+                var handleDelteCard =(id)=>{
+                  var filteredData=tour.filter((card)=>(card.id!==id))
+                  setTour(filteredData)
+                }
+                return(<div class="mainContainer">
+                         <h1 style={{textAlign:"center"}}>Our Tours</h1>
+                         <hr className="hrEl"/>{
+                            tour.map((a)=>{
+                                return (
+                                    <div className="card">
+                                        <img src={a.image} className="img"/>
+                                        <div className="cardData"> 
+                                            <div className="h1AndSpan">
+                                                <h4 className="innerHeading">{a.name}</h4>
+                                                <span className="span">{a.price}</span>
+                                            </div>
+                                            <p>{a.info}</p>
+                                            <div className="buttons">
+                                              <button className="btn" onClick={()=>{handleDelteCard(a.id)}}>Not Intrested </button>
+                                            </div>
+                                        </div>
+                                   </div>
+                                )
+                            })
+                         }
+                         
+                    </div>)
+            }
+            ReactDOM.render(<Vacation/>,document.getElementById("d1"))  
+        </script>
+    </body>
+</html>
